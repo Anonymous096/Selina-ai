@@ -34,7 +34,7 @@ export default async function Home() {
       <section>
         <div className="flex items-center justify-center flex-col mt-[80px] gap-4 ">
           <span className="text-orange bg-orange/20 px-4 py-2 rounded-full text-sm">
-            An AI powered sales assistant chatbot
+            An AI powered Marketing sales assistant chatbot
           </span>
           <Image
             src="/images/corinna-ai-logo.png"
