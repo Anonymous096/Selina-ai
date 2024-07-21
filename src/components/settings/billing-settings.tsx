@@ -7,6 +7,7 @@ import { Plus } from "lucide-react";
 type Props = {};
 
 const BillingSetting = async (props: Props) => {
+  // WIP: add subscription plan
   const plan = await onGetSubscriptionPlan();
   return (
     <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">

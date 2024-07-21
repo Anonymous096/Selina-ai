@@ -4,11 +4,11 @@ import { usePathname, useRouter } from "next/navigation";
 import React from "react";
 import { useEffect, useState } from "react";
 import { useChatContext } from "./user-chat-context";
-import { useClerk } from "@clerk/nextjs";
 import {
   onGetConversationMode,
   onToggleRealtime,
 } from "@/actions/conversation";
+import { useClerk } from "@clerk/nextjs";
 
 const useSideBar = () => {
   const [expand, setExpand] = useState<boolean | undefined>(undefined);
