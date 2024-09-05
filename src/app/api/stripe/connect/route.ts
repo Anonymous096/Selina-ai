@@ -11,7 +11,8 @@ const stripe = new Stripe(process.env.STRIPE_SECRET!, {
 export async function GET() {
   try {
     const user = await currentUser();
-    if (!user) return new NextResponse("User not authenticated");
+    if (!user)
+      return new NextResponse("User not authenticated", { status: 401 });
 
     const account = await stripe.accounts.create({
       country: "US",
@@ -50,6 +51,7 @@ export async function GET() {
           phone: "8888675309",
         },
       });
+
       if (approve) {
         const person = await stripe.accounts.createPerson(account.id, {
           first_name: "Jenny",
@@ -59,13 +61,14 @@ export async function GET() {
             title: "CEO",
           },
         });
+
         if (person) {
           const approvePerson = await stripe.accounts.updatePerson(
             account.id,
             person.id,
             {
               address: {
-                city: "victoria ",
+                city: "Victoria",
                 line1: "123 State St",
                 postal_code: "V8P 1A1",
                 state: "BC",
@@ -83,13 +86,14 @@ export async function GET() {
               },
             }
           );
+
           if (approvePerson) {
             const owner = await stripe.accounts.createPerson(account.id, {
               first_name: "Kathleen",
               last_name: "Banks",
               email: "kathleen@bestcookieco.com",
               address: {
-                city: "victoria ",
+                city: "Victoria",
                 line1: "123 State St",
                 postal_code: "V8P 1A1",
                 state: "BC",
@@ -105,12 +109,14 @@ export async function GET() {
                 percent_ownership: 80,
               },
             });
+
             if (owner) {
               const complete = await stripe.accounts.update(account.id, {
                 company: {
                   owners_provided: true,
                 },
               });
+
               if (complete) {
                 const saveAccountId = await client.user.update({
                   where: {
@@ -143,10 +149,20 @@ export async function GET() {
         }
       }
     }
+
+    // Add a response for cases where none of the conditions were met
+    return NextResponse.json(
+      { message: "Failed to complete the account setup" },
+      { status: 500 }
+    );
   } catch (error) {
     console.error(
       "An error occurred when calling the Stripe API to create an account:",
       error
+    );
+    return NextResponse.json(
+      { error: "Internal Server Error" },
+      { status: 500 }
     );
   }
 }
