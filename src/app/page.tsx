@@ -1,6 +1,6 @@
+import { onGetBlogPosts } from "@/actions/landing";
 import NavBar from "@/components/navbar";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
 import {
   Card,
   CardContent,
@@ -9,13 +9,13 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import clsx from "clsx";
 import { pricingCards } from "@/constants/landing-page";
-import Link from "next/link";
-import { Check } from "lucide-react";
-import parse from "html-react-parser";
-import { onGetBlogPosts } from "@/actions/landing";
 import { getMonthName } from "@/lib/utils";
+import clsx from "clsx";
+import parse from "html-react-parser";
+import { Check } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 export default async function Home() {
   const posts:
@@ -37,7 +37,7 @@ export default async function Home() {
             An AI powered Marketing sales assistant chatbot
           </span>
           <Image
-            src="/images/corinna-ai-logo.png"
+            src="/images/Selina-AI.png"
             width={500}
             height={100}
             alt="Logo"
