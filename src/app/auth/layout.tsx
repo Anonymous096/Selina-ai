@@ -15,7 +15,7 @@ const Layout = async ({ children }: Props) => {
     <div className="h-screen flex w-full justify-center">
       <div className="w-[600px] ld:w-full flex flex-col items-start p-6">
         <Image
-          src="/images/logo.png"
+          src="/images/Selina-logo.png"
           alt="LOGO"
           sizes="100vw"
           style={{
@@ -37,11 +37,11 @@ const Layout = async ({ children }: Props) => {
           something never done before 😉
         </p>
         <Image
-          src="/images/app-ui.png"
+          src="/images/selina-app-ui.png"
           alt="app image"
           loading="lazy"
           sizes="30"
-          className="absolute shrink-0 !w-[1600px] top-48"
+          className="absolute shrink-0 !w-[1000px] top-48"
           width={0}
           height={0}
         />

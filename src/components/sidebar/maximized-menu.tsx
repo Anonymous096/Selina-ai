@@ -1,7 +1,6 @@
 import { SIDE_BAR_MENU } from "@/constants/menu";
 import { LogOut, Menu, MonitorSmartphone } from "lucide-react";
 import Image from "next/image";
-import React from "react";
 import DomainMenu from "./domain-menu";
 import MenuItem from "./menu-item";
 
@@ -24,7 +23,7 @@ const MaxMenu = ({ current, domains, onExpand, onSignOut }: Props) => {
     <div className="py-3 px-4 flex flex-col h-full">
       <div className="flex justify-between items-center">
         <Image
-          src="/images/logo.png"
+          src="/images/Selina-logo.png"
           alt="LOGO"
           sizes="100vw"
           className="animate-fade-in opacity-0 delay-300 fill-mode-forwards"
