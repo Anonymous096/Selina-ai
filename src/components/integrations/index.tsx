@@ -1,7 +1,6 @@
 "use client";
 import { INTEGRATION_LIST_ITEMS } from "@/constants/integrations";
 import Image from "next/image";
-import React from "react";
 import { Card, CardContent, CardDescription } from "../ui/card";
 import IntegrationTrigger from "./integrationTrigger";
 
@@ -22,7 +21,7 @@ const IntegrationsList = ({ connections }: Props) => {
                 <div className="w-10 h-10 relative">
                   <Image
                     sizes="100vw"
-                    src={`https://ucarecdn.com/${item.logo}/`}
+                    src="/images/stripe-logo.png"
                     alt="Logo"
                     fill
                   />
