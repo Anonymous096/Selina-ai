@@ -51,7 +51,7 @@ export default async function Home() {
             Start For Free
           </Button>
           <Image
-            src="/images/iphonecorinna.png"
+            src="/images/iphoneselina.png"
             width={400}
             height={100}
             alt="Logo"
