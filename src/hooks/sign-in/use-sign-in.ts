@@ -15,32 +15,53 @@ export const useSignInForm = () => {
     resolver: zodResolver(UserLoginSchema),
     mode: "onChange",
   });
+
   const onHandleSubmit = methods.handleSubmit(
     async (values: UserLoginProps) => {
       if (!isLoaded) return;
 
       try {
         setLoading(true);
-        const authenticated = await signIn.create({
+        const result = await signIn.create({
           identifier: values.email,
           password: values.password,
         });
 
-        if (authenticated.status === "complete") {
-          await setActive({ session: authenticated.createdSessionId });
+        if (result.status === "complete") {
+          await setActive({ session: result.createdSessionId });
           toast({
             title: "Success",
             description: "Welcome back!",
           });
           router.push("/dashboard");
-        }
-      } catch (error: any) {
-        setLoading(false);
-        if (error.errors[0].code === "form_password_incorrect")
+        } else {
           toast({
             title: "Error",
-            description: "email/password is incorrect try again",
+            description: "Something went wrong. Please try again.",
           });
+        }
+      } catch (error: any) {
+        console.error("Sign in error:", error);
+        setLoading(false);
+        if (error.errors?.[0]?.code === "form_password_incorrect") {
+          toast({
+            title: "Error",
+            description: "Email/password is incorrect. Please try again.",
+          });
+        } else if (error.errors?.[0]?.code === "form_identifier_not_found") {
+          toast({
+            title: "Error",
+            description:
+              "No account found with this email. Please sign up first.",
+          });
+        } else {
+          toast({
+            title: "Error",
+            description: "An error occurred. Please try again.",
+          });
+        }
+      } finally {
+        setLoading(false);
       }
     }
   );

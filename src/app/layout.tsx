@@ -18,9 +18,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
-      <html lang="en">
-        <body className={jakarta.className}>
+    <html lang="en" className={jakarta.className}>
+      <body>
+        <ClerkProvider>
           <ThemeProvider
             attribute="class"
             defaultTheme="light"
@@ -30,8 +30,8 @@ export default function RootLayout({
             {children}
             <Toaster />
           </ThemeProvider>
-        </body>
-      </html>
-    </ClerkProvider>
+        </ClerkProvider>
+      </body>
+    </html>
   );
 }
