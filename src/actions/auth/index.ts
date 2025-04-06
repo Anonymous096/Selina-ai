@@ -34,8 +34,8 @@ export const onCompleteUserRegistration = async (
 };
 
 export const onLoginUser = async () => {
-  const user = await currentUser()
-  if (!user) redirectToSignIn()
+  const user = await currentUser();
+  if (!user) redirectToSignIn();
   else {
     try {
       const authenticated = await client.user.findUnique({
@@ -47,13 +47,13 @@ export const onLoginUser = async () => {
           id: true,
           type: true,
         },
-      })
+      });
       if (authenticated) {
-        const domains = await onGetAllAccountDomains()
-        return { status: 200, user: authenticated, domain: domains?.domains }
+        const domains = await onGetAllAccountDomains();
+        return { status: 200, user: authenticated, domain: domains?.domains };
       }
     } catch (error) {
-      return { status: 400 }
+      return { status: 400 };
     }
   }
-}
+};
