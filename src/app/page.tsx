@@ -33,11 +33,11 @@ export default async function Home() {
       <NavBar />
       <section>
         <div className="flex items-center justify-center flex-col mt-[80px] gap-4 ">
-          <span className="text-orange bg-orange/20 px-4 py-2 rounded-full text-sm">
+          <span className="text-white bg-blue-500 px-4 py-2 rounded-full text-sm">
             An AI powered Marketing sales assistant chatbot
           </span>
           <Image
-            src="/images/Selina-AI.png"
+            src="/images/NEW-LOGO.png"
             width={500}
             height={100}
             alt="Logo"
@@ -47,7 +47,7 @@ export default async function Home() {
             Your AI powered sales assistant! Embed Selina AI into any website
             with just a snippet of code!
           </p>
-          <Button className="bg-orange font-bold text-white px-4">
+          <Button className="bg-blue-500 font-bold text-white px-4">
             Start For Free
           </Button>
           <Image
@@ -75,7 +75,7 @@ export default async function Home() {
             })}
           >
             <CardHeader>
-              <CardTitle className="text-orange">{card.title}</CardTitle>
+              <CardTitle className="text-blue-500">{card.title}</CardTitle>
               <CardDescription>
                 {pricingCards.find((c) => c.title === card.title)?.description}
               </CardDescription>
@@ -97,7 +97,7 @@ export default async function Home() {
               </div>
               <Link
                 href={`/dashbord?plan=${card.title}`}
-                className="bg-[#f3d299] border-orange border-2 p-2 w-full text-center font-bold rounded-md"
+                className="bg-[#99def3] border-blue-500 border-2 p-2 w-full text-center font-bold rounded-md"
               >
                 Get Started
               </Link>

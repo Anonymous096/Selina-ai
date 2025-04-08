@@ -26,7 +26,7 @@ function NavBar() {
       </ul>
       <Link
         href="/dashboard"
-        className="bg-orange px-4 py-2 rounded-sm text-white"
+        className="bg-blue-500 px-4 py-2 rounded-sm text-white"
       >
         Free Trial
       </Link>
