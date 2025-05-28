@@ -28,7 +28,7 @@ const SignInPage = () => {
               </div>
               <GoogleAuthButton mode="sign-in" />
               <p>
-                Don't have an account?{" "}
+                Don&apos;t have an account?{" "}
                 <Link href="/auth/sign-up" className="font-bold">
                   Create one
                 </Link>
